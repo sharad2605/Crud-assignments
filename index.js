@@ -53,3 +53,17 @@ function displayUserOnScreen(userDetails) {
         document.getElementById("phone").value = userDetails.phone;
       });
     }
+
+    window.addEventListener("DOMContentLoaded",()=>{
+      axios.get("https://crudcrud.com/api/37f4a57e55d44bfe8377df5f4c5be3af/data")
+      .then((response)=>{
+        console.log(response);
+        for(var i=0;i<response.data.length;i++)
+          {
+            displayUserOnScreen(response.data[i]);
+          }
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
+    })
